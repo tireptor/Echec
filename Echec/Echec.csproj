@@ -43,8 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chessboard.cs" />
+    <Compile Include="Horseman.cs" />
+    <Compile Include="King.cs" />
+    <Compile Include="Mad.cs" />
+    <Compile Include="Part.cs" />
+    <Compile Include="Pawn.cs" />
+    <Compile Include="Pieces.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queen.cs" />
+    <Compile Include="Tower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
