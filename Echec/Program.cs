@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Echec
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] Args)
         {
+            MoteurEchec.Echiquier.repartirLesPieces();
+
+            
         }
     }
 }

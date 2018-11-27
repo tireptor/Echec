@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Echec
+namespace MoteurEchec
 {
-    class Player
+    class Joueur
     {
     }
 }
