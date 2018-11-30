@@ -20,21 +20,22 @@ namespace MoteurEchec
         bool seDeplacer(strPosition position);
         strPosition[] recupererListeDeplacement(strPosition position);
     }
+   
     abstract public class Pieces : IDeplaceable
     {
-        private string nom;
-        private string couleur;
+        private int nom;
+        private int couleur;
         private strPosition position;
         private bool estVivant = true;
 
-        public string Nom
+        public int Nom
         {
             get { return nom; }
             set { nom = value; }
         }
         
 
-        public string Couleur
+        public int Couleur
         {
             get { return couleur; }
             set { couleur = value; }

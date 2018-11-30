@@ -12,17 +12,21 @@ namespace MoteurEchec
 
         public bool PremiereAction { get => premiereAction; private set => premiereAction = value; }
 
-        public Pions (string nom, string couleur, strPosition position)
+        public Pions (int nom, int couleur, strPosition position)
         {
+            // Constructeur de pion
             this.Nom = nom;
             this.Couleur = couleur;
             this.Position = position;
         }
         private bool deplacementPossible(strPosition positionSouhaitee)
         {
+            // Vérifi si le déplacement souhaité est réalisable
+            // Si la position souhaité est en dehors de la grille d'échec alors on retourne false
             if (positionSouhaitee.Y < 0 || positionSouhaitee.Y > 7 || positionSouhaitee.X < 0 || positionSouhaitee.Y > 7) { return false; }
 
             strPosition[] listeDeplacement = new strPosition[5];
+            // On récupère la liste de tous les déplacements possibles pour le pion en fonction de sa position
             listeDeplacement = recupererListeDeplacement(positionSouhaitee);
             foreach (strPosition positionPossible in listeDeplacement)
             {
@@ -35,11 +39,17 @@ namespace MoteurEchec
         }
         public override bool seDeplacer(strPosition positionSouhaitee)
         {
+            // Vérification si le déplacement demandé est dispo, si oui retourne vrai sinon faux
             if (deplacementPossible(positionSouhaitee))
             {
-                // On affecte la nouvelle position du pion
+                // On affecte la nouvelle position du pion et on retourne vrai
                 this.Position = positionSouhaitee;
-                return true;
+                // on gère le premier tour du pion (au premier tour le pion peut avancer de 2 cases si il le souhaite)
+                if (premiereAction)
+                {
+                    this.premiereAction = false;
+                }
+                    return true;
             }
             return false;
         }
@@ -65,7 +75,8 @@ namespace MoteurEchec
             strPosition [] listeDeplacement = new strPosition[5];
             int indListeDeplacement = 0;
             strPosition positionAVerifier = position;
-            if (this.Couleur == "Blanc")
+            // on gère le déplacement en fonction de la couleur 
+            if (this.Couleur == (int)Echiquier.EnumCouleurs.Blanc)
             {
                 positionAVerifier.Y = position.Y + 1;
             }
@@ -95,7 +106,7 @@ namespace MoteurEchec
             // Un pion peut avancer de deux case lors de son premier tour
             if (premiereAction)
             {
-                if (this.Couleur == "Blanc")
+                if (this.Couleur == (int)Echiquier.EnumCouleurs.Blanc)
                 {
                     positionAVerifier.Y = positionAVerifier.Y + 2;
                 }
@@ -120,8 +131,14 @@ namespace MoteurEchec
         }
         private bool peutMangerPiece(strPosition positionAVerifier)
         {
+            // Si la case n'est pas libre alors cela signifi qu'il y a une pièce et que cette pièce peut être mangé par le pion
             if (!CaseEstLlibre(positionAVerifier)) { return true; }
             return false;
         }
+        private void transformerPion ()
+        {
+
+        }
+
     }
 }

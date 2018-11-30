@@ -8,7 +8,7 @@ namespace MoteurEchec
 {
     class Cavaliers : Pieces
     {
-        public Cavaliers(string nom, string couleur, strPosition position)
+        public Cavaliers(int nom, int couleur, strPosition position)
         {
             this.Nom = nom;
             this.Couleur = couleur;
