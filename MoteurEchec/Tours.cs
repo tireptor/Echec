@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoteurEchec
 {
-    class Tours : Pieces
+    public sealed class Tours : Pieces
     {
         public Tours(int nom, int couleur, strPosition position)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoteurEchec
 {
-    class Pions : Pieces
+    public sealed class Pions : Pieces
     {
         private bool premiereAction = true;
 
@@ -137,7 +137,7 @@ namespace MoteurEchec
         }
         private void transformerPion ()
         {
-
+            this.EstVivant = false;
         }
 
     }

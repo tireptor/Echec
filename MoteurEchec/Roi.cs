@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoteurEchec
 {
-    class Roi : Pieces
+    public sealed class Roi : Pieces
     {
         public Roi(int nom, int couleur, strPosition position)
         {
